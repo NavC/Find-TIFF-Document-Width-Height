@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace Find_TIFF_Document_Width_Height
         }
 
         private string TifFile = @"C:\image\Merge to TIF\Tif_Muilti_Page.tif";
+        private int PageNumber = 2;
         private void btnFindDimensions_Click(object sender, EventArgs e)
         {
             using (FileStream stream = new FileStream(TifFile, FileMode.Open, FileAccess.Read))
@@ -40,6 +42,9 @@ namespace Find_TIFF_Document_Width_Height
             using (Image tifdoc = Image.FromFile(TifFile))
             {
                 lblPages.Text = Convert.ToString(GetNumberOfPages(tifdoc));
+                tifdoc.SelectActiveFrame(FrameDimension.Page, PageNumber);
+                lblWidth.Text = tifdoc.Width.ToString();
+                lblHeight.Text = tifdoc.Height.ToString();
             }
         }
         private int GetNumberOfPages(Image TiffImage)

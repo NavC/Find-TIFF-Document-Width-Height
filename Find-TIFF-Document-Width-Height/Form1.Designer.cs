@@ -32,6 +32,8 @@
             this.lblSize = new System.Windows.Forms.Label();
             this.lblPages = new System.Windows.Forms.Label();
             this.btnPages = new System.Windows.Forms.Button();
+            this.lblWidth = new System.Windows.Forms.Label();
+            this.lblHeight = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnFindDimensions
@@ -74,11 +76,33 @@
             this.btnPages.UseVisualStyleBackColor = true;
             this.btnPages.Click += new System.EventHandler(this.btnPages_Click);
             // 
+            // lblWidth
+            // 
+            this.lblWidth.AutoSize = true;
+            this.lblWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWidth.Location = new System.Drawing.Point(13, 74);
+            this.lblWidth.Name = "lblWidth";
+            this.lblWidth.Size = new System.Drawing.Size(80, 29);
+            this.lblWidth.TabIndex = 1;
+            this.lblWidth.Text = "Width:";
+            // 
+            // lblHeight
+            // 
+            this.lblHeight.AutoSize = true;
+            this.lblHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeight.Location = new System.Drawing.Point(13, 108);
+            this.lblHeight.Name = "lblHeight";
+            this.lblHeight.Size = new System.Drawing.Size(89, 29);
+            this.lblHeight.TabIndex = 1;
+            this.lblHeight.Text = "Height:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(305, 250);
+            this.Controls.Add(this.lblHeight);
+            this.Controls.Add(this.lblWidth);
             this.Controls.Add(this.lblPages);
             this.Controls.Add(this.lblSize);
             this.Controls.Add(this.btnPages);
@@ -96,6 +120,8 @@
         private System.Windows.Forms.Label lblSize;
         private System.Windows.Forms.Label lblPages;
         private System.Windows.Forms.Button btnPages;
+        private System.Windows.Forms.Label lblWidth;
+        private System.Windows.Forms.Label lblHeight;
     }
 }
 
