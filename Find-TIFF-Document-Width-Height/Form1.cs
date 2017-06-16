@@ -18,9 +18,10 @@ namespace Find_TIFF_Document_Width_Height
             InitializeComponent();
         }
 
+        private string TifFile = @"C:\image\Merge to TIF\Tif_Muilti_Page.tif";
         private void btnFindDimensions_Click(object sender, EventArgs e)
         {
-            using (FileStream stream = new FileStream(@"C:\image\Merge to TIF\Tif_Muilti_Page.tif",FileMode.Open, FileAccess.Read))
+            using (FileStream stream = new FileStream(TifFile, FileMode.Open, FileAccess.Read))
             {
                 using (Image tif = Image.FromStream(stream, false, false))
                 {
@@ -32,6 +33,18 @@ namespace Find_TIFF_Document_Width_Height
                     lblSize.Text = "Width: " + width + " Height: " + height;
                 }
             }
+        }
+
+        private void btnPages_Click(object sender, EventArgs e)
+        {
+            using (Image tifdoc = Image.FromFile(TifFile))
+            {
+                lblPages.Text = Convert.ToString(GetNumberOfPages(tifdoc));
+            }
+        }
+        private int GetNumberOfPages(Image TiffImage)
+        {
+            return TiffImage.GetFrameCount(System.Drawing.Imaging.FrameDimension.Page);
         }
     }
 }
