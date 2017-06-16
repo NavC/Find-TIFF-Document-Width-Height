@@ -40,6 +40,7 @@
             this.btnFindDimensions.TabIndex = 0;
             this.btnFindDimensions.Text = "Find Dimensions";
             this.btnFindDimensions.UseVisualStyleBackColor = true;
+            this.btnFindDimensions.Click += new System.EventHandler(this.btnFindDimensions_Click);
             // 
             // lblSize
             // 
